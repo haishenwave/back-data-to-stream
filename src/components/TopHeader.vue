@@ -6,11 +6,11 @@
     <div class="flex items-center h-full">
 
       <div class="flex items-center mr-6">
-        <div class="w-8 h-8 rounded bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center mr-3 shadow-lg">
-          <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        </div>
+        <img
+            src="/favicon.svg"
+            alt="Logo"
+            class="w-8 h-8 mr-3 shadow-lg"
+        />
         <div>
           <h1 class="text-xl font-bold text-white tracking-wider italic">跃播台</h1>
           <p class="text-[9px] text-blue-300 tracking-[0.2em] opacity-60 font-medium">LEAP STREAM HUB</p>
