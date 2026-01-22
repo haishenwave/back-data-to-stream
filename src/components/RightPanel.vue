@@ -1,14 +1,17 @@
 <template>
-  <div class="flex flex-col space-y-4 p-1 h-full">
-    <section class="flex-1 bg-card-bg rounded-sm border border-white/5 p-3">
-      <h4 class="text-gray-400 mb-2">观看用户画像</h4>
-      <div class="h-64 bg-black/20 rounded"></div>
-    </section>
+  <div class="w-full h-full flex flex-col space-y-3 p-1 min-w-0 overflow-hidden">
 
-    <section class="flex-1 bg-black rounded-sm border border-gray-800 relative overflow-hidden">
-      <div class="absolute inset-0 flex items-center justify-center text-gray-600 italic">
-        Video Stream Playback
-      </div>
-    </section>
+    <div class="flex-1 w-full min-w-0 bg-card-bg/80 rounded-md border border-white/10 p-4 shadow-lg flex flex-col overflow-hidden">
+      <AudienceProfile />
+    </div>
+
+    <div class="flex-1 w-full min-w-0 bg-card-bg/80 rounded-md border border-white/10 p-4 shadow-lg flex flex-col overflow-hidden">
+      <ProductRanking />
+    </div>
   </div>
 </template>
+
+<script setup>
+import AudienceProfile from './right/AudienceProfile.vue';
+import ProductRanking from './right/ProductRanking.vue';
+</script>
