@@ -19,7 +19,7 @@
           />
         </div>
         <h1 class="text-2xl font-semibold text-white tracking-wide">跃播台 · 数据中台</h1>
-        <p class="text-xs text-gray-500 mt-2 uppercase tracking-widest">Leap Stream Hub Admin</p>
+        <p class="text-xs text-gray-500 mt-2 uppercase tracking-widest">Leap Stream Hub </p>
       </div>
 
       <div class="space-y-6">
@@ -66,7 +66,7 @@
       </div>
 
       <div class="mt-8 pt-6 border-t border-gray-800 text-center">
-        <p class="text-[10px] text-gray-600">© 2026 Leap Stream Technology. All rights reserved.</p>
+        <p class="text-[10px] text-gray-600">© 2025 Leap Stream Technology. All rights reserved.</p>
       </div>
     </div>
   </div>
