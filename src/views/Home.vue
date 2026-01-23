@@ -1,13 +1,13 @@
 <template>
-  <div class="w-full h-screen bg-[#0b0f19] flex overflow-hidden text-gray-300 font-sans">
+  <div class="w-full h-screen bg-[#0b0f19] flex overflow-auto min-w-[1024px] min-h-[600px] text-gray-300 font-sans">
 
-    <aside class="w-64 bg-[#111625] border-r border-white/5 flex flex-col flex-shrink-0">
-      <div class="h-16 flex items-center px-6 border-b border-white/5">
-        <img src="/favicon.svg" alt="Logo" class="w-7 h-7 mr-3" />
+    <aside class="w-64 bg-[#111625] border-r border-white/5 flex flex-col flex-shrink-0 sticky top-0 h-screen z-10">
+      <div class="h-16 flex items-center px-6 border-b border-white/5 flex-shrink-0">
+        <img src="/favicon.svg" alt="Logo" class="w-8 h-8 mr-3" />
         <span class="font-bold text-white tracking-wide">跃播台</span>
       </div>
 
-      <nav class="flex-1 px-3 py-6 space-y-1">
+      <nav class="flex-1 px-3 py-6 space-y-1 overflow-y-auto custom-scrollbar">
         <div class="px-3 mb-2 text-[10px] font-bold text-gray-500 uppercase tracking-wider">主要功能</div>
 
         <a href="#" class="flex items-center px-3 py-2.5 bg-blue-600/10 text-blue-400 rounded-md">
@@ -32,7 +32,7 @@
         </a>
       </nav>
 
-      <div class="p-4 border-t border-white/5">
+      <div class="p-4 border-t border-white/5 flex-shrink-0">
         <div class="flex items-center">
           <div class="w-8 h-8 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-500 text-xs font-bold">
             JD
@@ -45,13 +45,18 @@
       </div>
     </aside>
 
-    <main class="flex-1 flex flex-col bg-[#0b0f19]">
+    <main class="flex-1 flex flex-col bg-[#0b0f19] min-w-0">
 
-      <header class="h-16 flex items-center justify-between px-8 bg-[#0b0f19] border-b border-white/5">
+      <header class="h-16 flex items-center justify-between px-8 bg-[#0b0f19] border-b border-white/5 flex-shrink-0 sticky top-0 z-10">
         <h2 class="text-lg font-medium text-white">工作台概览</h2>
         <div class="flex items-center space-x-4">
           <div class="relative">
-            <input type="text" placeholder="搜索直播场次..." class="bg-[#161b2c] border border-gray-700 text-xs text-white rounded-full px-4 py-1.5 focus:outline-none focus:border-blue-500 w-64">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </span>
+            <input type="text" placeholder="搜索直播场次..." class="bg-[#161b2c] border border-gray-700 text-xs text-white rounded-full pl-10 pr-4 py-1.5 focus:outline-none focus:border-blue-500 w-64 transition-all focus:w-72">
           </div>
           <button class="text-gray-400 hover:text-white relative">
             <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
@@ -110,8 +115,10 @@
               <td class="px-6 py-4 text-center">
                 <button
                     @click="goToDashboard"
-                    class="text-blue-400 hover:text-white px-3 py-1 border border-blue-500/30 rounded hover:bg-blue-600 hover:border-blue-600 transition-all"
+                    class="text-blue-400 hover:text-white px-3 py-1 border border-blue-500/30 rounded hover:bg-blue-600 hover:border-blue-600 transition-all flex items-center justify-center mx-auto"
+                    title="在新窗口打开大屏"
                 >
+                  <svg class="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                   数据复盘
                 </button>
               </td>
@@ -130,7 +137,6 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-// 模拟概览数据
 const stats = [
   { title: '本月累计 GMV', value: '45.2w', trend: 12.5 },
   { title: '累计成交订单', value: '9,240', trend: 8.4 },
@@ -138,21 +144,21 @@ const stats = [
   { title: '新增粉丝', value: '5,100', trend: 15.3 },
 ];
 
-// 模拟列表数据
 const liveRecords = [
   { id: 1, title: '青春助农：密云板栗南瓜专场', date: '2026-01-22 18:00', gmv: '156,000', orders: '3,248' },
   { id: 2, title: '周末福利：助农蔬菜大礼包', date: '2026-01-20 19:30', gmv: '89,400', orders: '1,850' },
   { id: 3, title: '新春特辑：手工红薯粉条', date: '2026-01-15 18:00', gmv: '65,200', orders: '2,100' },
 ];
 
-// 修改跳转逻辑：在新标签页打开
 const goToDashboard = () => {
-  // 1. 解析路由地址
-  const routeUrl = router.resolve({
-    path: '/dashboard'
-  });
-
-  // 2. 使用 window.open 打开新标签页 ('_blank')
+  const routeUrl = router.resolve({ path: '/dashboard' });
   window.open(routeUrl.href, '_blank');
 };
 </script>
+
+<style scoped>
+/* 简单的滚动条美化 */
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+</style>

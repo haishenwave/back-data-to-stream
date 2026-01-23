@@ -10,7 +10,7 @@ body, html {
   width: 100%;
   height: 100%;
   background-color: #0a0d1d;
-  overflow: hidden; /* 严禁出现滚动条 */
+
   font-family: 'Inter', system-ui, sans-serif;
 }
 

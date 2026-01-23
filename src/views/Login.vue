@@ -1,21 +1,21 @@
 <template>
-  <div class="w-full h-screen bg-[#0b0f19] flex items-center justify-center relative overflow-hidden">
+  <div class="w-full h-screen min-h-[600px] bg-[#0b0f19] flex items-center justify-center relative overflow-auto">
 
-    <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-    <div class="absolute inset-0 bg-gradient-to-tr from-[#0f172a] via-[#0b0f19] to-[#1e1b4b]"></div>
+    <div class="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+    <div class="fixed inset-0 bg-gradient-to-tr from-[#0f172a] via-[#0b0f19] to-[#1e1b4b] pointer-events-none"></div>
 
-    <div class="absolute -bottom-20 -right-20 opacity-5 pointer-events-none">
+    <div class="fixed -bottom-20 -right-20 opacity-5 pointer-events-none">
       <svg class="w-96 h-96 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
     </div>
 
-    <div class="relative z-10 w-full max-w-md bg-[#161b2c] border border-blue-500/20 rounded-xl shadow-2xl p-10">
+    <div class="relative z-10 w-full max-w-md bg-[#161b2c] border border-blue-500/20 rounded-xl shadow-2xl p-10 mx-4 my-10">
 
       <div class="mb-8 text-center">
         <div class="flex justify-center mb-4">
           <img
               src="/favicon.svg"
-              alt="Logo"
-              class="w-12 h-12 shadow-lg shadow-blue-500/30 hover:scale-105 transition-transform duration-300"
+              alt="LSH Logo"
+              class="w-16 h-16 shadow-lg shadow-blue-500/30 hover:scale-105 transition-transform duration-300"
           />
         </div>
         <h1 class="text-2xl font-semibold text-white tracking-wide">跃播台 · 数据中台</h1>
@@ -82,7 +82,7 @@ const form = ref({ username: '', password: '' });
 
 const handleLogin = () => {
   if (!form.value.username || !form.value.password) {
-    alert('提示：账号密码可随意输入'); // 演示用
+    alert('提示：账号密码可随意输入');
   }
   loading.value = true;
   setTimeout(() => {
