@@ -7,11 +7,11 @@ const chartContainer = ref(null);
 let myChart = null;
 let resizeObserver = null;
 
-const COLORS = { natural: '#3b82f6', paid: '#10b981', other: '#f59e0b' };
+const COLORS = { private: '#3b82f6', natural: '#10b981', other: '#f59e0b' };
 const sourceData = [
-  { name: '自然流量', percent: 100, color: COLORS.natural },
-  { name: '付费流量', percent: 0, color: COLORS.paid },
-  { name: '其他', percent: 0, color: COLORS.other },
+  { name: '私域/社群分享', percent: 65, color: COLORS.private },
+  { name: '同城/校友推荐', percent: 30, color: COLORS.natural },
+  { name: '其他自然流量', percent: 5, color: COLORS.other },
 ];
 
 onMounted(() => {
@@ -19,14 +19,14 @@ onMounted(() => {
   const option = {
     series: [{
       type: 'pie',
-      radius: ['60%', '80%'], // 稍微调小一点，适应小屏
+      radius: ['60%', '80%'],
       center: ['50%', '50%'],
       avoidLabelOverlap: false,
       label: { show: false },
       data: [
-        { value: 100, name: '自然流量', itemStyle: { color: COLORS.natural } },
-        { value: 0, name: '付费流量', itemStyle: { color: COLORS.paid } },
-        { value: 0, name: '其他', itemStyle: { color: COLORS.other } },
+        { value: 65, name: '私域/社群分享', itemStyle: { color: COLORS.private } },
+        { value: 30, name: '同城/校友推荐', itemStyle: { color: COLORS.natural } },
+        { value: 5, name: '其他自然流量', itemStyle: { color: COLORS.other } },
       ]
     }]
   };
@@ -45,8 +45,8 @@ onUnmounted(() => {
 <template>
   <div class="w-full h-full flex flex-col">
     <div class="flex justify-between items-center mb-2 flex-shrink-0">
-      <h3 class="text-xs font-medium text-gray-200">观众流量来源</h3>
-      <div class="text-[9px] text-gray-400">实时</div>
+      <h3 class="text-xs font-medium text-gray-200">本周流量渠道占比</h3>
+      <div class="text-[9px] text-gray-400">近7日</div>
     </div>
 
     <div class="flex-1 w-full min-h-0 flex items-center relative" ref="chartContainer">

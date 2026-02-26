@@ -21,9 +21,9 @@
 
       <div class="flex items-center text-sm text-blue-100/90 bg-blue-500/10 px-3 py-1.5 rounded border border-blue-500/20">
         <svg class="w-4 h-4 mr-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
         </svg>
-        <span class="opacity-70 mr-2 text-xs">主播</span>
+        <span class="opacity-70 mr-2 text-xs">分析对象</span>
         <span class="font-bold tracking-wide">助农小分队</span>
       </div>
 
@@ -32,14 +32,14 @@
     <div class="flex items-center h-full">
       <div class="flex flex-col items-end">
         <div class="flex items-center text-xs text-gray-400 mb-1">
-          <span class="w-2 h-2 rounded-full bg-gray-500 mr-2"></span>
-          <span>复盘场次时间</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 shadow-[0_0_6px_rgba(16,185,129,0.8)]"></span>
+          <span>周报统计周期</span>
         </div>
         <div class="flex items-center text-lg font-mono font-bold text-white tracking-wide">
           <svg class="w-4 h-4 mr-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
           </svg>
-          2026.01.22 <span class="text-blue-500 mx-2">|</span> 18:00 - 22:00
+          2025.06.15 <span class="text-blue-500 mx-2">-</span> 06.21
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full flex flex-col overflow-hidden">
     <div class="flex justify-between items-center mb-4 flex-shrink-0">
-      <h3 class="text-xs font-medium text-gray-200">商品销售排行</h3>
+      <h3 class="text-xs font-medium text-gray-200">本周商品销售排行</h3>
       <span class="text-[10px] text-blue-400 cursor-pointer hover:text-blue-300">全部 ›</span>
     </div>
 
@@ -45,12 +45,13 @@
 </template>
 
 <script setup>
+// 数据根据真实周报总计（GMV:18652, 订单:980）进行拆分模拟
 const products = [
-  { name: '【助农】密云板栗南瓜 5斤装', sales: '1,582', amount: '4.7w' },
-  { name: '现摘普罗旺斯沙瓤西红柿', sales: '1,120', amount: '3.9w' },
-  { name: '农家散养土鸡蛋 30枚装', sales: '850', amount: '3.3w' },
-  { name: '爱心助农蔬菜大礼包(6种)', sales: '420', amount: '2.5w' },
-  { name: '纯手工红薯粉条 无添加', sales: '310', amount: '0.9w' },
+  { name: '【助农】密云板栗南瓜 5斤装', sales: '350', amount: '6,650' },
+  { name: '现摘普罗旺斯沙瓤西红柿', sales: '210', amount: '5,250' },
+  { name: '农家散养土鸡蛋 30枚装', sales: '110', amount: '3,850' },
+  { name: '纯手工红薯粉条 无添加', sales: '80', amount: '1,440' },
+  { name: '爱心助农紫皮洋葱 5斤装', sales: '65', amount: '975' },
 ];
 </script>
 
