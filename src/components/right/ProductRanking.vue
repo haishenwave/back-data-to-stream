@@ -32,7 +32,7 @@ const products = [
   { name: '火山南瓜', sales: '240', amount: '7,176' },
   { name: '小米', sales: '641', amount: '6,345.9' },
   { name: '火山西红柿', sales: '93', amount: '4,640.7' },
-  { name: '文旅路线', sales: '5', amount: '495' },
+  { name: '文旅路线', sales: '6', amount: '495' },
 ];
 </script>
 
