@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full flex flex-col overflow-hidden relative">
     <div class="flex justify-between items-center mb-2 flex-shrink-0">
-      <h3 class="text-xs font-medium text-gray-200">本周观看用户画像</h3>
+      <h3 class="text-xs font-medium text-gray-200">本场观看用户画像</h3>
       <span class="text-[9px] text-gray-500 italic">人群洞察</span>
     </div>
     <div class="flex-1 w-full min-h-0 relative" ref="chartContainer">
@@ -26,7 +26,6 @@ onMounted(() => {
     xAxis: { type: 'value', show: false },
     yAxis: {
       type: 'category',
-      // 恢复为通用中台系统的标准年龄区间维度
       data: ['18-23岁', '24-30岁', '31-40岁', '41-50岁', '50岁以上'],
       axisLabel: { color: '#94a3b8', fontSize: 10, interval: 0 },
       axisLine: { show: false },
@@ -34,8 +33,8 @@ onMounted(() => {
     },
     series: [{
       type: 'bar',
-      // 数据分布保持双峰特征，隐藏业务逻辑在数字中
-      data: [35, 25, 10, 20, 10],
+      // 完全按照 PDF 需求定制比例：18-23降至8%，24-30改27%，31-40拉到35%
+      data: [8, 27, 35, 20, 10],
       barWidth: '50%',
       itemStyle: {
         color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{ offset: 0, color: '#3b82f6' }, { offset: 1, color: 'rgba(59, 130, 246, 0.1)' }]),

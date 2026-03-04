@@ -45,8 +45,8 @@ onUnmounted(() => {
 <template>
   <div class="w-full h-full flex flex-col">
     <div class="flex justify-between items-center mb-2 flex-shrink-0">
-      <h3 class="text-xs font-medium text-gray-200">本周流量渠道占比</h3>
-      <div class="text-[9px] text-gray-400">近7日</div>
+      <h3 class="text-xs font-medium text-gray-200">本场流量渠道占比</h3>
+
     </div>
 
     <div class="flex-1 w-full min-h-0 flex items-center relative" ref="chartContainer">
