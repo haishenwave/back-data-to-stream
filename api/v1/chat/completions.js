@@ -84,9 +84,9 @@ export default function handler(req, res) {
         "message": "指令获取成功",
         "data": [
             {
-                "description": description,
+                "instructions": description,
                 "opening_remark": openingRemark,
-                "end": endRemark,
+                "conclusion": endRemark,
                 "no_response": noResponseRemark
             }
         ]
