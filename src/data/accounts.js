@@ -92,20 +92,20 @@ export const accounts = [
     },
   },
 
-  // ─── 账号 2：精酿茶啤 ───────────────────────────────────────────────
+  // ─── 账号 2：精品茶具 ───────────────────────────────────────────────
   {
     credentials: { username: 'xxj42531', password: 'ybt231' },
-    profile: { name: '精酿茶啤', role: '旗舰店管理员' },
+    profile: { name: '精品茶具', role: '旗舰店管理员' },
 
     homeData: {
       stats: [
-        { title: '本月累计 GMV', value: '7.54w', trend: 22.8 },
+        { title: '本月累计 GMV', value: '7.55w', trend: 22.8 },
         { title: '本月成交订单', value: '956', trend: 19.3 },
         { title: '本月场均客单价', value: '78.5', trend: 4.1 },
         { title: '本月新增高活粉丝', value: '520', trend: 31.6 },
       ],
       liveRecords: [
-        { id: 1, title: '3月4日直播数据复盘', date: '2026-03-04 18:00', gmv: '40,198', orders: '511', status: '已归档' },
+        { id: 1, title: '3月4日直播数据复盘', date: '2026-03-04 18:00', gmv: '40,290', orders: '511', status: '已归档' },
         { id: 2, title: '3月1日直播数据复盘', date: '2026-03-01 19:30', gmv: '35,200', orders: '445', status: '已归档' },
         { id: 3, title: '2月28日直播数据复盘', date: '2026-02-28 18:00', gmv: '28,400', orders: '360', status: '已归档' },
         { id: 4, title: '2月25日直播数据复盘', date: '2026-02-25 18:00', gmv: '22,800', orders: '290', status: '已归档' },
@@ -121,14 +121,14 @@ export const accounts = [
     },
 
     dashboardData: {
-      header: { brandName: '精酿茶啤', date: '2026.03.04', timeRange: '18:00 - 22:00' },
+      header: { brandName: '精品茶具', date: '2026.03.04', timeRange: '18:00 - 22:00' },
 
       topMetrics: {
         row1: [
-          { title: '本场交易总额 (GMV)', value: '4.02', unit: 'w', sub: '同比增长8.2%', desc: '本场直播期间拍下订单的总金额（包含未支付和退款订单）。' },
+          { title: '本场交易总额 (GMV)', value: '4.03', unit: 'w', sub: '同比增长8.2%', desc: '本场直播期间拍下订单的总金额（包含未支付和退款订单）。' },
           { title: '本场交易件数', value: '511', unit: '件', sub: '同比涨幅 +6.5%', desc: '本场直播成功售出的商品总件数。' },
           { title: '成交转化率', value: '64.56', unit: '%', sub: '转化能力强', desc: '成交人数 / 独立访客数。反映本次直播流量的精准度与极强的购买意愿。' },
-          { title: '平均客单价', value: '78.67', unit: '元', sub: '客均消费水平', desc: '平均每笔成交订单的金额。' },
+          { title: '平均客单价', value: '78.84', unit: '元', sub: '客均消费水平', desc: '平均每笔成交订单的金额。' },
         ],
         row2: [
           { title: '商品总曝光', value: '35.9', unit: 'w', sub: '同比增长18.4%', desc: '本场直播期间商品在各渠道被展示的总次数。' },
@@ -148,7 +148,7 @@ export const accounts = [
 
       bottomChart: {
         xAxis: ['18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00'],
-        gmv: [3000, 9000, 17500, 26000, 33000, 37200, 39000, 39800, 40198],
+        gmv: [3000, 9000, 17500, 26000, 33000, 37200, 39000, 39800, 40290],
         orders: [22, 58, 88, 105, 82, 68, 45, 25, 18],
       },
 
@@ -177,10 +177,9 @@ export const accounts = [
       },
 
       productRanking: [
-        { name: '乌龙茶啤（六罐装）', sales: '210', amount: '16,590' },
-        { name: '茉莉花茶啤（六罐装）', sales: '166', amount: '12,284' },
-        { name: '碧螺春茶啤（六罐装）', sales: '85', amount: '6,460' },
-        { name: '混合精选装（十二罐）', sales: '50', amount: '4,864' },
+        { name: '汝窑功夫茶具12件套', sales: '168', amount: '16,800' },
+        { name: '汝窑盖碗三件套', sales: '185', amount: '14,800' },
+        { name: '汝窑品茗杯单杯', sales: '158', amount: '8,690' },
       ],
     },
   },
