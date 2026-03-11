@@ -27,13 +27,10 @@
 </template>
 
 <script setup>
-// 完全复刻 PDF 中的四大商品精确实参
-const products = [
-  { name: '火山南瓜', sales: '240', amount: '7,176' },
-  { name: '小米', sales: '642', amount: '6,355.8' },
-  { name: '火山西红柿', sales: '93', amount: '4,640.7' },
-  { name: '文旅路线', sales: '5', amount: '495' },
-];
+import { computed } from 'vue';
+import { userStore } from '@/store/user.js';
+
+const products = computed(() => userStore.currentAccount.dashboardData.productRanking);
 </script>
 
 <style scoped>

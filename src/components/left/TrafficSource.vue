@@ -1,18 +1,14 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import * as echarts from 'echarts';
+import { userStore } from '@/store/user.js';
 
 const chartRef = ref(null);
 const chartContainer = ref(null);
 let myChart = null;
 let resizeObserver = null;
 
-const COLORS = { private: '#3b82f6', natural: '#10b981', other: '#f59e0b' };
-const sourceData = [
-  { name: '私域/社群分享', percent: 65, color: COLORS.private },
-  { name: '同城/校友推荐', percent: 30, color: COLORS.natural },
-  { name: '其他自然流量', percent: 5, color: COLORS.other },
-];
+const sourceData = userStore.currentAccount.dashboardData.trafficSource;
 
 onMounted(() => {
   myChart = echarts.init(chartRef.value);
@@ -23,11 +19,11 @@ onMounted(() => {
       center: ['50%', '50%'],
       avoidLabelOverlap: false,
       label: { show: false },
-      data: [
-        { value: 65, name: '私域/社群分享', itemStyle: { color: COLORS.private } },
-        { value: 30, name: '同城/校友推荐', itemStyle: { color: COLORS.natural } },
-        { value: 5, name: '其他自然流量', itemStyle: { color: COLORS.other } },
-      ]
+      data: sourceData.map(item => ({
+        value: item.percent,
+        name: item.name,
+        itemStyle: { color: item.color }
+      }))
     }]
   };
   myChart.setOption(option);

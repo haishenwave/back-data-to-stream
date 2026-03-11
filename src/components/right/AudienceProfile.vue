@@ -13,6 +13,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import * as echarts from 'echarts';
+import { userStore } from '@/store/user.js';
 
 const ageChartRef = ref(null);
 const chartContainer = ref(null);
@@ -20,21 +21,22 @@ let myChart = null;
 let resizeObserver = null;
 
 onMounted(() => {
+  const { labels, data } = userStore.currentAccount.dashboardData.audienceProfile;
+
   myChart = echarts.init(ageChartRef.value);
   myChart.setOption({
     grid: { left: '3%', right: '12%', bottom: '3%', top: '5%', containLabel: true },
     xAxis: { type: 'value', show: false },
     yAxis: {
       type: 'category',
-      data: ['18-23岁', '24-30岁', '31-40岁', '41-50岁', '50岁以上'],
+      data: labels,
       axisLabel: { color: '#94a3b8', fontSize: 10, interval: 0 },
       axisLine: { show: false },
       axisTick: { show: false }
     },
     series: [{
       type: 'bar',
-      // 完全按照 PDF 需求定制比例：18-23降至8%，24-30改27%，31-40拉到35%
-      data: [8, 27, 35, 20, 10],
+      data: data,
       barWidth: '50%',
       itemStyle: {
         color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{ offset: 0, color: '#3b82f6' }, { offset: 1, color: 'rgba(59, 130, 246, 0.1)' }]),

@@ -19,6 +19,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import * as echarts from 'echarts';
+import { userStore } from '@/store/user.js';
 
 const chartContainer = ref(null);
 const chartRef = ref(null);
@@ -27,22 +28,20 @@ let myChart = null;
 let resizeObserver = null;
 
 onMounted(() => {
+  const { xAxis, gmv, orders } = userStore.currentAccount.dashboardData.bottomChart;
+
   myChart = echarts.init(chartRef.value);
   myChart.setOption({
     grid: { top: '15%', left: '2%', right: '2%', bottom: '5%', containLabel: true },
     tooltip: { trigger: 'axis', backgroundColor: 'rgba(16, 27, 54, 0.9)', borderColor: '#2563eb', textStyle: { color: '#fff' } },
-    xAxis: { type: 'category', boundaryGap: true, data: ['18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00'], axisLabel: { color: '#64748b', fontSize: 10 }, axisLine: { lineStyle: { color: 'rgba(255,255,255,0.1)' } } },
+    xAxis: { type: 'category', boundaryGap: true, data: xAxis, axisLabel: { color: '#64748b', fontSize: 10 }, axisLine: { lineStyle: { color: 'rgba(255,255,255,0.1)' } } },
     yAxis: [
       { type: 'value', name: 'GMV (元)', nameTextStyle: { color: '#64748b', fontSize: 9 }, splitLine: { lineStyle: { color: 'rgba(255,255,255,0.05)' } }, axisLabel: { color: '#64748b', fontSize: 10 } },
       { type: 'value', name: '订单 (件)', nameTextStyle: { color: '#64748b', fontSize: 9 }, splitLine: { show: false }, axisLabel: { color: '#64748b', fontSize: 10 } }
     ],
     series: [
-      { name: '累计 GMV', type: 'line', smooth: true, symbol: 'circle', itemStyle: { color: '#3b82f6' }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(59, 130, 246, 0.4)' }, { offset: 1, color: 'rgba(59, 130, 246, 0)' }]) },
-        // 终点精算：18652
-        data: [1500, 4200, 7800, 11500, 14200, 16000, 17500, 18200, 18652] },
-      { name: '阶段订单', type: 'bar', yAxisIndex: 1, barWidth: '25%', itemStyle: { color: 'rgba(16, 185, 129, 0.3)', borderRadius: [4, 4, 0, 0] },
-        // 总和精算：70+130+210+190+140+100+80+40+20 = 980
-        data: [70, 130, 210, 190, 140, 100, 80, 40, 20] }
+      { name: '累计 GMV', type: 'line', smooth: true, symbol: 'circle', itemStyle: { color: '#3b82f6' }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(59, 130, 246, 0.4)' }, { offset: 1, color: 'rgba(59, 130, 246, 0)' }]) }, data: gmv },
+      { name: '阶段订单', type: 'bar', yAxisIndex: 1, barWidth: '25%', itemStyle: { color: 'rgba(16, 185, 129, 0.3)', borderRadius: [4, 4, 0, 0] }, data: orders }
     ]
   });
   resizeObserver = new ResizeObserver(() => myChart.resize());

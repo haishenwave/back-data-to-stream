@@ -22,10 +22,10 @@
 
       <div class="p-4 border-t border-white/5 flex-shrink-0">
         <div class="flex items-center">
-          <div class="w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-500 text-xs font-bold">HS</div>
+          <div class="w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-500 text-xs font-bold">{{ profile.name.slice(0, 2) }}</div>
           <div class="ml-3">
-            <p class="text-xs font-medium text-white">火山农品</p>
-            <p class="text-[10px] text-gray-500">旗舰店管理员</p>
+            <p class="text-xs font-medium text-white">{{ profile.name }}</p>
+            <p class="text-[10px] text-gray-500">{{ profile.role }}</p>
           </div>
         </div>
       </div>
@@ -120,37 +120,18 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
+import { userStore } from '@/store/user.js';
 
 const router = useRouter();
 
-// 3月数据精准计算：18652 + 16500 = 35152 (3.51w)；订单：980 + 782 = 1762
-const stats = [
-  { title: '本月累计 GMV', value: '3.51w', trend: 32.5 },
-  { title: '本月成交订单', value: '1,762', trend: 28.4 },
-  { title: '本月场均客单价', value: '19.9', trend: 1.5 },
-  { title: '本月新增高活粉丝', value: '1,250', trend: 45.1 },
-];
-
-const liveRecords = [
-  // 完全采纳甲方截图中的 18652 -> 16500 -> 14200 阶梯，显得真实且稳健
-  { id: 1, title: '3月4日直播数据复盘', date: '2026-03-04 18:00', gmv: '18,657', orders: '980', status: '已归档' },
-  { id: 2, title: '3月1日直播数据复盘', date: '2026-03-01 19:30', gmv: '16,500', orders: '782', status: '已归档' },
-  { id: 3, title: '2月28日直播数据复盘', date: '2026-02-28 18:00', gmv: '14,200', orders: '530', status: '已归档' },
-  { id: 4, title: '2月25日直播数据复盘', date: '2026-02-25 18:00', gmv: '12,850', orders: '442', status: '已归档' },
-  { id: 5, title: '2月22日直播数据复盘', date: '2026-02-22 19:30', gmv: '11,100', orders: '350', status: '已归档' },
-  { id: 6, title: '2月18日直播数据复盘', date: '2026-02-18 18:00', gmv: '9,800', orders: '310', status: '已归档' },
-  { id: 7, title: '2月15日直播数据复盘', date: '2026-02-15 19:00', gmv: '8,500', orders: '285', status: '已归档' },
-  { id: 8, title: '2月11日直播数据复盘', date: '2026-02-11 19:30', gmv: '7,200', orders: '230', status: '已归档' },
-  { id: 9, title: '2月8日直播数据复盘', date: '2026-02-08 18:00', gmv: '15,200', orders: '620', status: '已归档' },
-  { id: 10, title: '2月4日直播数据复盘', date: '2026-02-04 19:00', gmv: '6,900', orders: '210', status: '已归档' },
-  { id: 11, title: '2月1日直播数据复盘', date: '2026-02-01 18:00', gmv: '5,500', orders: '165', status: '已归档' },
-  { id: 12, title: '1月28日直播数据复盘', date: '2026-01-28 19:30', gmv: '4,800', orders: '150', status: '已归档' },
-];
+const profile = computed(() => userStore.currentAccount.profile);
+const stats = computed(() => userStore.currentAccount.homeData.stats);
+const liveRecords = computed(() => userStore.currentAccount.homeData.liveRecords);
 
 const currentPage = ref(1);
 const pageSize = 5;
-const totalPages = computed(() => Math.ceil(liveRecords.length / pageSize));
-const paginatedRecords = computed(() => liveRecords.slice((currentPage.value - 1) * pageSize, currentPage.value * pageSize));
+const totalPages = computed(() => Math.ceil(liveRecords.value.length / pageSize));
+const paginatedRecords = computed(() => liveRecords.value.slice((currentPage.value - 1) * pageSize, currentPage.value * pageSize));
 const prevPage = () => { if (currentPage.value > 1) currentPage.value--; };
 const nextPage = () => { if (currentPage.value < totalPages.value) currentPage.value++; };
 

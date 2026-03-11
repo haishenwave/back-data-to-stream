@@ -56,6 +56,10 @@
           <a href="#" class="text-blue-500 hover:text-blue-400">忘记密码?</a>
         </div>
 
+        <div v-if="errorMsg" class="text-xs text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2 text-center">
+          {{ errorMsg }}
+        </div>
+
         <button
             @click="handleLogin"
             class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-lg shadow-lg shadow-blue-900/30 transition-all active:scale-[0.98] flex justify-center items-center"
@@ -75,19 +79,28 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { userStore } from '@/store/user.js';
 
 const router = useRouter();
 const loading = ref(false);
+const errorMsg = ref('');
 const form = ref({ username: '', password: '' });
 
 const handleLogin = () => {
+  errorMsg.value = '';
   if (!form.value.username || !form.value.password) {
-    alert('提示：账号密码可随意输入');
+    errorMsg.value = '请输入账号和密码';
+    return;
   }
   loading.value = true;
   setTimeout(() => {
+    const ok = userStore.login(form.value.username, form.value.password);
     loading.value = false;
-    router.push('/home');
+    if (ok) {
+      router.push('/home');
+    } else {
+      errorMsg.value = '账号或密码错误，请重试';
+    }
   }, 600);
 };
 </script>

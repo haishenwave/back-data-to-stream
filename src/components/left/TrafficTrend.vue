@@ -17,6 +17,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import * as echarts from 'echarts';
+import { userStore } from '@/store/user.js';
 
 const chartRef = ref(null);
 const chartContainer = ref(null);
@@ -24,22 +25,23 @@ let myChart = null;
 let resizeObserver = null;
 
 onMounted(() => {
+  const { xAxis, pv, uv } = userStore.currentAccount.dashboardData.trafficTrend;
+
   myChart = echarts.init(chartRef.value);
   const option = {
     grid: { top: '10%', left: '0%', right: '5%', bottom: '0%', containLabel: true },
     tooltip: { trigger: 'axis', backgroundColor: 'rgba(16, 27, 54, 0.9)', borderColor: '#2563eb', textStyle: { color: '#fff' } },
-    // 强制同步 30 分钟刻度
-    xAxis: { type: 'category', boundaryGap: false, data: ['18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00'], axisLabel: { color: '#666', fontSize: 9 }, axisLine: { lineStyle: { color: '#2d3748' } } },
+    xAxis: { type: 'category', boundaryGap: false, data: xAxis, axisLabel: { color: '#666', fontSize: 9 }, axisLine: { lineStyle: { color: '#2d3748' } } },
     yAxis: [
       { type: 'value', splitLine: { lineStyle: { color: '#1a1f35' } }, axisLabel: { color: '#666', fontSize: 9 } },
       { type: 'value', show: false }
     ],
     series: [
       { name: '页面浏览', type: 'line', smooth: true, symbol: 'none',
-        data: [600, 1100, 1800, 2500, 2900, 2400, 1700, 1200, 850], // 匹配成交高点
+        data: pv,
         lineStyle: { color: '#3b82f6', width: 2 }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(59, 130, 246, 0.3)' }, { offset: 1, color: 'rgba(59, 130, 246, 0)' }]) } },
       { name: '独立访客', type: 'line', yAxisIndex: 1, smooth: true, symbol: 'none',
-        data: [45, 85, 130, 170, 195, 150, 110, 80, 50],
+        data: uv,
         lineStyle: { color: '#10b981', width: 2 }, areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(16, 185, 129, 0.2)' }, { offset: 1, color: 'rgba(16, 185, 129, 0)' }]) } }
     ]
   };
