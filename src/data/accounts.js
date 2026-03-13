@@ -99,29 +99,29 @@ export const accounts = [
 
     homeData: {
       stats: [
-        { title: '本月累计 GMV', value: '7.55w', trend: 22.8 },
-        { title: '本月成交订单', value: '956', trend: 19.3 },
-        { title: '本月场均客单价', value: '78.5', trend: 4.1 },
-        { title: '本月新增高活粉丝', value: '520', trend: 31.6 },
+        { title: '本月累计 GMV', value: '16.04w', trend: 26.3 },
+        { title: '本月成交订单', value: '2,034', trend: 24.1 },
+        { title: '本月场均客单价', value: '78.9', trend: 4.1 },
+        { title: '本月新增高活粉丝', value: '1,350', trend: 29.8 },
       ],
       liveRecords: [
-        { id: 1, title: '3月4日直播数据复盘', date: '2026-03-04 18:00', gmv: '40,290', orders: '511', status: '已归档' },
-        { id: 2, title: '3月1日直播数据复盘', date: '2026-03-01 19:30', gmv: '35,200', orders: '445', status: '已归档' },
-        { id: 3, title: '2月28日直播数据复盘', date: '2026-02-28 18:00', gmv: '28,400', orders: '360', status: '已归档' },
-        { id: 4, title: '2月25日直播数据复盘', date: '2026-02-25 18:00', gmv: '22,800', orders: '290', status: '已归档' },
-        { id: 5, title: '2月22日直播数据复盘', date: '2026-02-22 19:30', gmv: '18,500', orders: '235', status: '已归档' },
-        { id: 6, title: '2月18日直播数据复盘', date: '2026-02-18 18:00', gmv: '15,200', orders: '193', status: '已归档' },
-        { id: 7, title: '2月15日直播数据复盘', date: '2026-02-15 19:00', gmv: '12,800', orders: '163', status: '已归档' },
-        { id: 8, title: '2月11日直播数据复盘', date: '2026-02-11 19:30', gmv: '10,400', orders: '132', status: '已归档' },
-        { id: 9, title: '2月8日直播数据复盘', date: '2026-02-08 18:00', gmv: '8,900', orders: '113', status: '已归档' },
-        { id: 10, title: '2月4日直播数据复盘', date: '2026-02-04 19:00', gmv: '7,200', orders: '91', status: '已归档' },
-        { id: 11, title: '2月1日直播数据复盘', date: '2026-02-01 18:00', gmv: '6,100', orders: '77', status: '已归档' },
-        { id: 12, title: '1月28日直播数据复盘', date: '2026-01-28 19:30', gmv: '4,500', orders: '57', status: '已归档' },
+        { id: 1, title: '3月16日直播数据复盘', date: '2026-03-16 18:00', gmv: '40,290', orders: '511', status: '已归档' },
+        { id: 2, title: '3月14日直播数据复盘', date: '2026-03-14 19:30', gmv: '35,200', orders: '445', status: '已归档' },
+        { id: 3, title: '3月13日直播数据复盘', date: '2026-03-13 18:00', gmv: '28,400', orders: '360', status: '已归档' },
+        { id: 4, title: '3月10日直播数据复盘', date: '2026-03-10 18:00', gmv: '22,800', orders: '290', status: '已归档' },
+        { id: 5, title: '3月7日直播数据复盘', date: '2026-03-07 19:30', gmv: '18,500', orders: '235', status: '已归档' },
+        { id: 6, title: '3月3日直播数据复盘', date: '2026-03-03 18:00', gmv: '15,200', orders: '193', status: '已归档' },
+        { id: 7, title: '2月28日直播数据复盘', date: '2026-02-28 19:00', gmv: '12,800', orders: '163', status: '已归档' },
+        { id: 8, title: '2月24日直播数据复盘', date: '2026-02-24 19:30', gmv: '10,400', orders: '132', status: '已归档' },
+        { id: 9, title: '2月21日直播数据复盘', date: '2026-02-21 18:00', gmv: '8,900', orders: '113', status: '已归档' },
+        { id: 10, title: '2月17日直播数据复盘', date: '2026-02-17 19:00', gmv: '7,200', orders: '91', status: '已归档' },
+        { id: 11, title: '2月14日直播数据复盘', date: '2026-02-14 18:00', gmv: '6,100', orders: '77', status: '已归档' },
+        { id: 12, title: '2月10日直播数据复盘', date: '2026-02-10 19:30', gmv: '4,500', orders: '57', status: '已归档' },
       ],
     },
 
     dashboardData: {
-      header: { brandName: '精品茶具', date: '2026.03.04', timeRange: '18:00 - 22:00' },
+      header: { brandName: '精品茶具', date: '2026.03.17', timeRange: '18:00 - 22:00' },
 
       topMetrics: {
         row1: [
