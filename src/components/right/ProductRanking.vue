@@ -20,7 +20,7 @@
           <span v-if="index < 3" class="ml-1 text-[11px] drop-shadow-md">🔥</span>
         </div>
         <div class="col-span-2 text-right"><p class="text-emerald-400 font-mono tracking-tighter">{{ prod.sales }}</p></div>
-        <div class="col-span-3 text-right pr-1"><p class="text-white font-mono tracking-tighter whitespace-nowrap">¥{{ prod.amount }}</p></div>
+        <div class="col-span-3 text-right pr-1"><p class="text-white font-mono tracking-tighter whitespace-nowrap">{{ prod.amount }}</p></div>
       </div>
     </div>
   </div>
